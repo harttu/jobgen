@@ -8,7 +8,7 @@
 ############################################################################################
 
 # TODO:
-#1. implement this variable, to run from different folders
+#1. implement SCRIPTDIR variable, to run from different folders
 # https://stackoverflow.com/a/246128
 #SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd
 #)"
@@ -197,6 +197,9 @@ readonly testtype="devel.tsv"
 readonly early_stopping=true
 
 run_name="generic_run"
+
+#
+# is the script called without arguments
 if [[ $# == 0 || -z "$1" ]]
 then
 	echo "Using data:$datadir"
@@ -210,10 +213,7 @@ then
 	echo "Please give name description for this run (no spaces)"
 	read run_name
 else
-	# in the case this is called by another program we set up as following
-	# DEPRECATED
-	#datadir=$1
-	#comment=$2
+	# in the case the script is called by another program we set up as following
 	for i in "$@"
 	do
 	case $i in
@@ -235,8 +235,6 @@ else
 	esac
 done
 
-#set -o nounset
-	#echo "Using data='$datadir' and comment='$2' as parameter"
 fi
 
 
@@ -321,11 +319,6 @@ sbatch_cmd="sbatch $slurmscript scripts/run-JOBGEN.sh --data_dir=$datadir \
 # write sbatch commands to the file
 echo $sbatch_cmd >> $OUTPUTFILE
 
-# Older code,
-#echo "########################" >> "$OUTPUTFILE.start_eval"
-#echo "#$max_seq_len $batch_size $learning_rate $epochs " >> "$OUTPUTFILE.start_eval"
-#echo "#for i in (1 2 3 4); do echo $sbatch_cmd_eval ; done" >> "$OUTPUTFILE.start_eval"
-
 					done
 				done 
 			done
@@ -352,8 +345,6 @@ cp JOBGEN/auxfiles/avg_std_parser.awk $projectdir
 cp JOBGEN/auxfiles/send_results.bash $projectdir
 cp JOBGEN/auxfiles/get_results.bash $projectdir
 
-#DDawk '{sub(/devel.tsv/,"test.tsv"); print $0}' $OUTPUTFILE >> "${OUTPUTFILE}.TEST_START"
-#
 # PUHTI-specific:
 # make a DEBUG prefix file that will run one test run on gpu-test partition
 command=`head -1 $OUTPUTFILE | awk '{ gsub(/slurm-run/,"slurm-run-gputest"); print; }'`
