@@ -1,0 +1,8 @@
+data
+data/*
+old/*
+runs/*
+scripts/*
+!scripts/run-JOBGEN.sh
+DEPRECATE-slurm-template/*
+old_start.bash
