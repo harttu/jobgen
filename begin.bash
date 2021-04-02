@@ -3,6 +3,8 @@
 ##
 # This script is part of the JOBGEN package, see start.bash for more reference
 # This script is to be used on JOBGEN_name.bash files produced by the start.bash script
+#
+# Refer to start.bash for more detailed explanations
 ##
 
 # make bash safer

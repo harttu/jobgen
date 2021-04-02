@@ -6,6 +6,8 @@
 # It will scan a set of specific data sets ALLDATAS and start running jobs, whose parameters are set in the start.bash
 # and will feed them in when there is room in the queue
 #
+# Please refer to start.bash for more detailed overview
+#
 ####
 
 ##
