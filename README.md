@@ -11,7 +11,7 @@ cp reponame/start.bash . # start file is in the root
 cp reponame/scripts/run-JOBGEN.sh ./scripts/ # scripts-folder is the default place for scripts
 mkdir runs # this is where logs are gathered
 ```
-Edit start.bash
+Edit start.bash to select data, model and tweak parameters
 ```bash
 bash start.bash
 begin NAME_OF_OUTPUTFILE
