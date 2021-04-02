@@ -8,7 +8,7 @@ Usage:
 ```bash
 git clone reponame
 cp reponame/start.bash . # start file is in the root
-cp reponame/scripts/run-JOBGEN.sh ./scripts # scripts-folder is the default place for scripts
+cp reponame/scripts/run-JOBGEN.sh ./scripts/ # scripts-folder is the default place for scripts
 mkdir runs # this is where logs are gathered
 ```
 Edit start.bash
@@ -16,3 +16,4 @@ Edit start.bash
 bash start.bash
 begin NAME_OF_OUTPUTFILE
 ```
+Examine the runs/run_name folder. The logs will be directed to this dir along with awk-utilities to make summaries.

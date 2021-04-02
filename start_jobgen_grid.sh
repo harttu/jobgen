@@ -68,9 +68,9 @@ do
 		JOBS_IN_QUEUE=$((JOBS_RUNNING+JOBS_PENDING))
 	done # while
 	# Launch the jobs
-	NOTHING_TO_SEE=$(bash begin.bash $BEGIN)
+	JOB_INFO=$(bash begin.bash $BEGIN)
 	#NOTHING_TO_SEE=$(sbatch scripts/slurm-run.sh scripts/dummy_wait.bash 120)
-	echo $NOTHING_TO_SEE
+	echo $JOB_INFO
 
 	echo "Waiting the queue to settle down"
 	sleep 20
